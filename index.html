@@ -276,6 +276,7 @@
 </style>
 </head>
 <body>
+<iframe name="signup-sink" style="display:none" title="ช่องรับข้อมูลฟอร์มลงทะเบียน (ซ่อน)"></iframe>
 
 <header class="hero">
   <svg class="hero-roofline" viewBox="0 0 420 220" fill="none" aria-hidden="true">
@@ -915,16 +916,27 @@
     if (!name || !temple || !email) { msg.textContent = 'กรุณากรอกข้อมูลให้ครบทุกช่อง'; msg.className = 'form-msg error'; return; }
     if (!agree) { msg.textContent = 'กรุณายอมรับเงื่อนไขการใช้งานก่อนดำเนินการต่อ'; msg.className = 'form-msg error'; return; }
 
-    // บันทึกข้อมูลลง Google Sheet ผ่าน Apps Script Web App — ยิงแบบ no-cors (fire-and-forget)
-    // ไม่บล็อกการแสดงปุ่มดาวน์โหลดแม้ยังไม่ได้ตั้งค่า URL หรือการบันทึกล้มเหลว เพื่อไม่ให้ผู้ใช้ติดขัด
+    // บันทึกข้อมูลลง Google Sheet ผ่าน Apps Script Web App
+    // ใช้การ submit ฟอร์มจริงแบบซ่อน (ยิงเข้า iframe ที่มองไม่เห็น) แทนการใช้ fetch()
+    // เพราะ fetch ในโหมด no-cors จะตาม redirect ของ Apps Script แล้วถูกเปลี่ยนจาก POST เป็น GET
+    // โดยอัตโนมัติตามสเปกของ Fetch API ทำให้ doPost() ฝั่งเซิร์ฟเวอร์ไม่ทำงานเลย (ข้อมูลหายเงียบๆ)
+    // การ submit ฟอร์ม HTML จริงไม่มีปัญหานี้ เพราะเบราว์เซอร์คง method เป็น POST ไว้ตลอดแม้เจอ redirect
     if (SIGNUP_ENDPOINT_URL && SIGNUP_ENDPOINT_URL.indexOf('PASTE_') !== 0) {
       try {
-        fetch(SIGNUP_ENDPOINT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // เลี่ยง CORS preflight
-          body: JSON.stringify({ name: name, temple: temple, email: email, page: 'watthaisaisai-landing' })
-        });
+        const f = document.createElement('form');
+        f.method = 'POST';
+        f.action = SIGNUP_ENDPOINT_URL;
+        f.target = 'signup-sink';
+        f.style.display = 'none';
+        const fields = { name: name, temple: temple, email: email, page: 'watthaisaisai-landing' };
+        for (const k in fields) {
+          const inp = document.createElement('input');
+          inp.type = 'hidden'; inp.name = k; inp.value = fields[k];
+          f.appendChild(inp);
+        }
+        document.body.appendChild(f);
+        f.submit();
+        setTimeout(() => { if (f.parentNode) f.parentNode.removeChild(f); }, 4000);
       } catch (err) { /* เงียบไว้ ไม่กระทบประสบการณ์ผู้ใช้ */ }
     }
 
