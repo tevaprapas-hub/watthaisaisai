@@ -547,14 +547,11 @@
 </footer>
 <script>
 (function(){
-  const SIGNUP_ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbxgdHqOpEli0G5iqlu1a_hYPFUMFhkrK0uXqm2vx3It5-6f5pe9ARMK_WYtqAtP4FNG/exec";
-
   const form = document.getElementById('signup-form');
   const msg = document.getElementById('form-msg');
 
   form.addEventListener('submit', function(e){
     const name = document.getElementById('f-name').value.trim();
-    const temple = document.getElementById('f-temple').value.trim();
     const email = document.getElementById('f-email').value.trim();
     const agree = document.getElementById('f-agree').checked;
     msg.textContent = '';
@@ -576,27 +573,11 @@
       return;
     }
 
-    // ข้อมูลครบแล้ว — ไม่ preventDefault ปล่อยให้ฟอร์ม native นำทางไปหน้า download.html ต่อไปตามปกติ
-    // (action="download.html" method="GET" ที่กำหนดไว้ใน HTML) พร้อมกันนี้ยิงข้อมูลไปบันทึกที่
-    // Google Sheet แบบเงียบๆ ผ่าน iframe ที่ซ่อนไว้ ซึ่งการ submit ฟอร์มซ่อนนี้เป็น synchronous
-    // จึงยิงออกไปได้ทันก่อนที่เบราว์เซอร์จะเปลี่ยนหน้าตามฟอร์มหลัก
-    if (SIGNUP_ENDPOINT_URL && SIGNUP_ENDPOINT_URL.indexOf('PASTE_') !== 0) {
-      try {
-        const f = document.createElement('form');
-        f.method = 'POST';
-        f.action = SIGNUP_ENDPOINT_URL;
-        f.target = 'signup-sink';
-        f.style.display = 'none';
-        const fields = { name: name, temple: temple, email: email, page: 'watthaisaisai-landing' };
-        for (const k in fields) {
-          const inp = document.createElement('input');
-          inp.type = 'hidden'; inp.name = k; inp.value = fields[k];
-          f.appendChild(inp);
-        }
-        document.body.appendChild(f);
-        f.submit();
-      } catch (err) { /* เงียบไว้ ไม่กระทบการนำทางหลัก */ }
-    }
+    // ข้อมูลครบแล้ว — ไม่ preventDefault ปล่อยให้ฟอร์ม native นำทางไปหน้า download.html ตามปกติ
+    // (action="download.html" method="GET") ชื่อ/วัด/อีเมลจะติดไปกับ URL เป็น query string
+    // การบันทึกข้อมูลลง Google Sheet จริงๆ ทำที่หน้า download.html แทน (ดูเหตุผลในไฟล์นั้น)
+    // ไม่ใช้วิธียิง POST ผ่าน iframe ซ่อนจากหน้านี้อีกต่อไป เพราะหน้าตอบกลับของ Apps Script
+    // บางครั้งหลุดออกจาก iframe มาแสดงเต็มหน้าจอ (ปัญหาที่พบก่อนหน้านี้)
   });
 })();
 </script>

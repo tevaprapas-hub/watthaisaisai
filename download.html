@@ -373,32 +373,44 @@
 
 <script>
 (function(){
-  // URL เดียวกับที่ใช้บันทึกฟอร์มลงทะเบียน — ใช้ร่วมกันสำหรับนับสถิติด้วย
+  // URL เดียวกับที่ใช้บันทึกฟอร์มลงทะเบียน — ใช้ร่วมกันสำหรับนับสถิติและบันทึกการลงทะเบียนด้วย
   const TRACK_URL = "https://script.google.com/macros/s/AKfycbxgdHqOpEli0G5iqlu1a_hYPFUMFhkrK0uXqm2vx3It5-6f5pe9ARMK_WYtqAtP4FNG/exec";
 
-  // อ่านชื่อจาก query string (ส่งมาจากหน้าลงทะเบียน) เพื่อแสดงคำทักทายส่วนตัว
+  // อ่านข้อมูลจาก query string (ส่งมาจากฟอร์มที่หน้าหลักผ่าน action="download.html" method="GET")
   const params = new URLSearchParams(window.location.search);
-  const name = params.get('name');
+  const name = params.get('name') || '';
+  const temple = params.get('temple') || '';
+  const email = params.get('email') || '';
+
   if (name) {
     const greeting = document.getElementById('dl-greeting');
     if (greeting) greeting.textContent = 'ยินดีต้อนรับคุณ ' + name + '!';
   }
 
-  // นับสถิติแบบ fire-and-forget ด้วย <img> pixel (เชื่อถือได้กว่า fetch เพราะไม่มีปัญหาเรื่อง CORS/redirect)
-  // เขียนลงชีตเดียวกับฟอร์มลงทะเบียน ในแท็บ "Stats" แยกต่างหาก — ไม่บล็อกการใช้งานหน้านี้แม้โหลดไม่สำเร็จ
-  function track(eventType) {
+  // ทุกการนับสถิติและบันทึกข้อมูล ใช้วิธีเดียวกันหมด: ยิง GET ผ่าน <img> pixel แบบเงียบๆ
+  // (ไม่ใช้ fetch หรือ iframe POST เพราะเคยเจอปัญหาเบราว์เซอร์เปิดหน้าตอบกลับของ Apps Script
+  // เป็นแท็บใหม่โดยไม่ตั้งใจ — วิธี pixel นี้ไม่มีปัญหานั้น และไม่ต้องอ่านค่าตอบกลับเลย)
+  function ping(query) {
     try {
       const img = new Image();
-      img.src = TRACK_URL + '?action=track&type=' + encodeURIComponent(eventType) + '&t=' + Date.now();
+      img.src = TRACK_URL + '?' + query + '&t=' + Date.now();
     } catch (err) { /* เงียบไว้ ไม่กระทบการใช้งาน */ }
   }
 
-  track('pageview');
+  ping('action=track&type=pageview');
+
+  // บันทึกการลงทะเบียนจริง ณ จุดนี้ (หน้านี้ถึงได้ก็ต่อเมื่อกรอกฟอร์มครบและกดส่งจากหน้าหลักแล้วเท่านั้น)
+  if (name && email) {
+    ping('action=signup'
+      + '&name=' + encodeURIComponent(name)
+      + '&temple=' + encodeURIComponent(temple)
+      + '&email=' + encodeURIComponent(email));
+  }
 
   const fullLink = document.getElementById('dl-link-full');
   const fastLink = document.getElementById('dl-link-fast');
-  if (fullLink) fullLink.addEventListener('click', function(){ track('download_full'); });
-  if (fastLink) fastLink.addEventListener('click', function(){ track('download_fast'); });
+  if (fullLink) fullLink.addEventListener('click', function(){ ping('action=track&type=download_full'); });
+  if (fastLink) fastLink.addEventListener('click', function(){ ping('action=track&type=download_fast'); });
 })();
 </script>
 
