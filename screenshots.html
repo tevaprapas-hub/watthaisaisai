@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ตัวอย่างหน้าจอ — วัดไทยใสใส</title>
+<title>ตัวอย่างหน้าจอ แยกตามบทบาท — วัดไทยใสใส</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -209,11 +209,12 @@
   .flowchart-frame svg { display: block; min-width: 760px; }
 
   /* ---------- Report gallery ---------- */
-  .report-hero-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; margin-top: 32px; align-items: start; }
+  .report-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; align-items: start; }
   .report-frame { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 14px; box-shadow: var(--shadow); }
   .report-frame .cap { font-size: 12.5px; color: var(--muted); margin: 10px 2px 0; text-align: center; }
   .report-frame .official-tag { display: inline-block; font-size: 11px; font-weight: 700; color: #15803d; background: #F0FDF4;
     border: 1px solid #BBF7D0; padding: 2px 10px; border-radius: 12px; margin-bottom: 8px; }
+  .report-frame .official-tag.general { color: var(--muted); background: var(--bg-raised); border-color: var(--line); }
   .report-legal-note { font-size: 13px; color: var(--ink-soft); background: var(--notice-bg); border: 1px solid var(--line);
     border-radius: 6px; padding: 16px 20px; margin-top: 10px; line-height: 1.7; }
   .report-legal-note a { color: var(--ink-soft); }
@@ -273,6 +274,13 @@
   .dl-buttons .btn { flex: 1; min-width: 220px; justify-content: center; }
   .dl-buttons .btn.fast-btn { background: #4F46E5; }
   .dl-buttons .btn.fast-btn:hover { box-shadow: 0 6px 16px rgba(79,70,229,0.28); }
+  /* ---------- Detailed role-based screen mockups ---------- */
+  .screen-frame { background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); margin-top: 18px; }
+  .screen-frame svg { display: block; width: 100%; height: auto; }
+  .screen-cap { font-size: 13px; color: var(--muted); text-align: center; margin: 10px 0 36px; }
+  .role-compare-frame { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 8px; padding: 16px; margin: 24px 0 8px; }
+  .role-compare-frame svg { display: block; width: 100%; height: auto; }
+
   /* ---------- Site nav bar (shared across all pages) ---------- */
   .site-nav { background: var(--deep); padding: 12px 0; }
   .site-nav .wrap-wide { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
@@ -305,11 +313,14 @@
     <a class="brand" href="index.html">วัดไทยใสใส</a>
     <select onchange="if(this.value) location.href=this.value;" aria-label="ไปยังหน้าอื่นของเว็บไซต์">
       <option value="index.html">หน้าหลัก</option>
+      <option value="governance.html">พระวินัย & คำสั่งวัด</option>
       <option value="research.html">โครงการวิจัย & ผู้พัฒนา</option>
       <option value="features.html">ฟีเจอร์ & กลไกการเงิน</option>
       <option value="structure.html">โครงสร้างระบบ & เวอร์ชัน</option>
       <option value="screenshots.html" selected>ตัวอย่างหน้าจอ</option>
       <option value="reports.html">ตัวอย่างรายงาน</option>
+      <option value="install-guide.html">คู่มือการติดตั้ง (ละเอียด)</option>
+      <option value="usage-guide.html">คู่มือการใช้งาน (ละเอียด)</option>
       <option value="license.html">เงื่อนไขการใช้งาน</option>
     </select>
   </div>
@@ -319,10 +330,297 @@
 <section id="screenshots">
   <div class="wrap-wide">
     <p class="eyebrow">ตัวอย่างหน้าจอ</p>
-    <h2 class="section-title">หน้าตาระบบเมื่อใช้งานจริง</h2>
-    <div class="shot-row" id="shot-row"></div>
+    <h2 class="section-title">หน้าตาระบบเมื่อใช้งานจริง แยกตามบทบาท</h2>
+    <p>ระบบมีผู้ใช้งาน 3 สิทธิ์ แต่ละสิทธิ์เห็นเมนูไม่เหมือนกัน — แผนภาพด้านล่างเทียบให้ดูชัดๆ ว่าใครเห็นเมนูอะไรบ้าง ตามด้วยตัวอย่างหน้าจอจริงของแต่ละบทบาท</p>
+
+    <h3 class="gov-h" style="margin-top:30px;">เทียบเมนูที่มองเห็นได้ ตามสิทธิ์การใช้งาน</h3>
+    <div class="role-compare-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 334" width="100%" height="100%">
+<rect width="940" height="334" fill="white"/>
+<rect x="20" y="10" width="270" height="304" fill="#1f2430" rx="8"/>
+<text x="155.0" y="36" font-family='Sarabun' font-size="13.5" font-weight="700" fill="#fff" text-anchor="middle">User</text>
+<text x="155.0" y="54" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#9ca3af" text-anchor="middle">(เจ้าหน้าที่บัญชี)</text>
+<rect x="32" y="78" width="246" height="28" fill="#4F46E5" rx="5"/>
+<text x="44" y="97" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">ภาพรวม &amp; บันทึก</text>
+<rect x="32" y="112" width="246" height="28" fill="#4F46E5" rx="5"/>
+<text x="44" y="131" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">พิมพ์รายงานบัญชี</text>
+<rect x="32" y="146" width="246" height="28" fill="#4F46E5" rx="5"/>
+<text x="44" y="165" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">ระบบบริจาค (e-Donation)</text>
+<text x="44" y="199" font-family='Sarabun' font-size="11" font-weight="normal" fill="#5b6372" text-anchor="start">การสอบทาน</text>
+<text x="270" y="199" font-family='Sarabun' font-size="11" font-weight="normal" fill="#4b5160" text-anchor="end">✕</text>
+<text x="44" y="233" font-family='Sarabun' font-size="11" font-weight="normal" fill="#5b6372" text-anchor="start">จัดการผู้ใช้งาน</text>
+<text x="270" y="233" font-family='Sarabun' font-size="11" font-weight="normal" fill="#4b5160" text-anchor="end">✕</text>
+<text x="44" y="267" font-family='Sarabun' font-size="11" font-weight="normal" fill="#5b6372" text-anchor="start">ตั้งค่าระบบ</text>
+<text x="270" y="267" font-family='Sarabun' font-size="11" font-weight="normal" fill="#4b5160" text-anchor="end">✕</text>
+<rect x="315" y="10" width="270" height="304" fill="#1f2430" rx="8"/>
+<text x="450.0" y="36" font-family='Sarabun' font-size="13.5" font-weight="700" fill="#fff" text-anchor="middle">Auditor</text>
+<text x="450.0" y="54" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#9ca3af" text-anchor="middle">(ผู้ตรวจสอบ)</text>
+<rect x="327" y="78" width="246" height="28" fill="#B45309" rx="5"/>
+<text x="339" y="97" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">ภาพรวม &amp; บันทึก</text>
+<rect x="327" y="112" width="246" height="28" fill="#B45309" rx="5"/>
+<text x="339" y="131" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">พิมพ์รายงานบัญชี</text>
+<rect x="327" y="146" width="246" height="28" fill="#B45309" rx="5"/>
+<text x="339" y="165" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">ระบบบริจาค (e-Donation)</text>
+<rect x="327" y="180" width="246" height="28" fill="#B45309" rx="5"/>
+<text x="339" y="199" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">การสอบทาน</text>
+<text x="339" y="233" font-family='Sarabun' font-size="11" font-weight="normal" fill="#5b6372" text-anchor="start">จัดการผู้ใช้งาน</text>
+<text x="565" y="233" font-family='Sarabun' font-size="11" font-weight="normal" fill="#4b5160" text-anchor="end">✕</text>
+<text x="339" y="267" font-family='Sarabun' font-size="11" font-weight="normal" fill="#5b6372" text-anchor="start">ตั้งค่าระบบ</text>
+<text x="565" y="267" font-family='Sarabun' font-size="11" font-weight="normal" fill="#4b5160" text-anchor="end">✕</text>
+<rect x="610" y="10" width="270" height="304" fill="#1f2430" rx="8"/>
+<text x="745.0" y="36" font-family='Sarabun' font-size="13.5" font-weight="700" fill="#fff" text-anchor="middle">Admin</text>
+<text x="745.0" y="54" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#9ca3af" text-anchor="middle">(ผู้ดูแลระบบ)</text>
+<rect x="622" y="78" width="246" height="28" fill="#EA580C" rx="5"/>
+<text x="634" y="97" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">ภาพรวม &amp; บันทึก</text>
+<rect x="622" y="112" width="246" height="28" fill="#EA580C" rx="5"/>
+<text x="634" y="131" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">พิมพ์รายงานบัญชี</text>
+<rect x="622" y="146" width="246" height="28" fill="#EA580C" rx="5"/>
+<text x="634" y="165" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">ระบบบริจาค (e-Donation)</text>
+<rect x="622" y="180" width="246" height="28" fill="#EA580C" rx="5"/>
+<text x="634" y="199" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">การสอบทาน</text>
+<rect x="622" y="214" width="246" height="28" fill="#EA580C" rx="5"/>
+<text x="634" y="233" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">จัดการผู้ใช้งาน</text>
+<rect x="622" y="248" width="246" height="28" fill="#EA580C" rx="5"/>
+<text x="634" y="267" font-family='Sarabun' font-size="11" font-weight="600" fill="#fff" text-anchor="start">ตั้งค่าระบบ</text>
+</svg></div>
+
+    <h3 class="gov-h">1. เจ้าหน้าที่บัญชี (User) — บันทึกรับ-จ่าย</h3>
+    <p>งานหลักคือบันทึกรายรับ-รายจ่ายพร้อมหลักฐาน ระบบจะตั้งสถานะเริ่มต้นเป็น Draft ให้ผู้ดูแลระบบตรวจยืนยันก่อนส่งเข้าสู่กระบวนการสอบทาน แก้ไขหรือลบได้เฉพาะรายการของตนเองที่ยังไม่ผ่านการตรวจสอบ</p>
+    <div class="screen-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 680" width="100%" height="100%">
+<rect width="1040" height="680" fill="#f8f9fb"/>
+<rect x="0" y="0" width="1040" height="680" fill="none" stroke="#ddd" stroke-width="1"/>
+<rect x="0" y="0" width="1040" height="46" fill="#1f2430"/>
+<text x="20" y="29" font-family='Sarabun' font-size="14" font-weight="700" fill="#fff" text-anchor="start">วัดตัวอย่างตามสบาย</text>
+<rect x="870" y="12" width="150" height="20" fill="#C7D2FE" rx="10"/>
+<text x="945.0" y="26" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#1f2430" text-anchor="middle">เจ้าหน้าที่บัญชี (User)</text>
+<rect x="20" y="64" width="380" height="470" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<text x="38" y="92" font-family='Sarabun' font-size="14" font-weight="700" fill="#1F2430" text-anchor="start">➕ บันทึกรายการใหม่</text>
+<text x="38" y="116" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#8a7a63" text-anchor="start">วันที่</text>
+<rect x="38" y="124" width="344" height="30" fill="#fafafa" stroke="#e4dac5" stroke-width="1" rx="4"/>
+<text x="48" y="144" font-family='Sarabun' font-size="11" font-weight="600" fill="#1F2430" text-anchor="start">12/09/2569</text>
+<text x="38" y="164" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#8a7a63" text-anchor="start">ประเภท</text>
+<rect x="38" y="172" width="344" height="30" fill="#fafafa" stroke="#e4dac5" stroke-width="1" rx="4"/>
+<text x="48" y="192" font-family='Sarabun' font-size="11" font-weight="600" fill="#1F2430" text-anchor="start">รายรับ</text>
+<text x="38" y="212" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#8a7a63" text-anchor="start">หมวดหมู่</text>
+<rect x="38" y="220" width="344" height="30" fill="#fafafa" stroke="#e4dac5" stroke-width="1" rx="4"/>
+<text x="48" y="240" font-family='Sarabun' font-size="11" font-weight="600" fill="#1F2430" text-anchor="start">เงินบริจาค/ทำบุญ</text>
+<text x="38" y="260" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#8a7a63" text-anchor="start">บัญชีรับ-จ่าย</text>
+<rect x="38" y="268" width="344" height="30" fill="#fafafa" stroke="#e4dac5" stroke-width="1" rx="4"/>
+<text x="48" y="288" font-family='Sarabun' font-size="11" font-weight="600" fill="#1F2430" text-anchor="start">เงินสด (เหรัญญิก)</text>
+<text x="38" y="308" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#8a7a63" text-anchor="start">จำนวนเงิน</text>
+<rect x="38" y="316" width="344" height="30" fill="#fafafa" stroke="#e4dac5" stroke-width="1" rx="4"/>
+<text x="48" y="336" font-family='Sarabun' font-size="11" font-weight="600" fill="#1F2430" text-anchor="start">1,500.00</text>
+<text x="38" y="356" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#8a7a63" text-anchor="start">รายละเอียด</text>
+<rect x="38" y="364" width="344" height="30" fill="#fafafa" stroke="#e4dac5" stroke-width="1" rx="4"/>
+<text x="48" y="384" font-family='Sarabun' font-size="11" font-weight="600" fill="#1F2430" text-anchor="start">เงินทำบุญวันพระ</text>
+<rect x="38" y="408" width="20" height="20" fill="#fff" stroke="#1E8449" stroke-width="1" rx="3"/>
+<text x="64" y="423" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ส่งข้อมูลเข้าระบบ e-Donation</text>
+<rect x="38" y="438" width="344" height="36" fill="#EA580C" rx="6"/>
+<text x="210.0" y="461" font-family='Sarabun' font-size="12" font-weight="700" fill="#fff" text-anchor="middle">💾 บันทึกข้อมูล</text>
+<rect x="420" y="64" width="600" height="470" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<text x="438" y="92" font-family='Sarabun' font-size="14" font-weight="700" fill="#1F2430" text-anchor="start">ประวัติการบันทึกล่าสุด</text>
+<line x1="438" y1="106" x2="1002" y2="106" stroke="#e4dac5" stroke-width="1"/>
+<text x="438" y="122" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start">วันที่</text>
+<text x="540" y="122" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start">สถานะ</text>
+<text x="630" y="122" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start">รายการ</text>
+<text x="910" y="122" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="end">จำนวนเงิน</text>
+<text x="438" y="136" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">12/09</text>
+<rect x="540" y="123" width="66" height="20" fill="#9ca3af" rx="10"/>
+<text x="573.0" y="137" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">Draft</text>
+<text x="630" y="136" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">เงินทำบุญวันพระ</text>
+<text x="910" y="136" font-family='Sarabun' font-size="10.5" font-weight="600" fill="#1E8449" text-anchor="end">1,500.00</text>
+<line x1="438" y1="148" x2="1002" y2="148" stroke="#f0f0f0" stroke-width="1"/>
+<text x="438" y="170" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">11/09</text>
+<rect x="540" y="157" width="66" height="20" fill="#2563eb" rx="10"/>
+<text x="573.0" y="171" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">Verified</text>
+<text x="630" y="170" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ดอกเบี้ยธนาคาร</text>
+<text x="910" y="170" font-family='Sarabun' font-size="10.5" font-weight="600" fill="#1E8449" text-anchor="end">38.20</text>
+<line x1="438" y1="182" x2="1002" y2="182" stroke="#f0f0f0" stroke-width="1"/>
+<text x="438" y="204" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">10/09</text>
+<rect x="540" y="191" width="66" height="20" fill="#16a34a" rx="10"/>
+<text x="573.0" y="205" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">Audited</text>
+<text x="630" y="204" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ค่าน้ำประปา</text>
+<text x="910" y="204" font-family='Sarabun' font-size="10.5" font-weight="600" fill="#B23A3A" text-anchor="end">-350.00</text>
+<line x1="438" y1="216" x2="1002" y2="216" stroke="#f0f0f0" stroke-width="1"/>
+<text x="438" y="238" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">08/09</text>
+<rect x="540" y="225" width="66" height="20" fill="#ca8a04" rx="10"/>
+<text x="573.0" y="239" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">Pending</text>
+<text x="630" y="238" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">เงินบริจาคทอดกฐิน</text>
+<text x="910" y="238" font-family='Sarabun' font-size="10.5" font-weight="600" fill="#1E8449" text-anchor="end">8,200.00</text>
+<line x1="438" y1="250" x2="1002" y2="250" stroke="#f0f0f0" stroke-width="1"/>
+<text x="438" y="272" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">05/09</text>
+<rect x="540" y="259" width="66" height="20" fill="#16a34a" rx="10"/>
+<text x="573.0" y="273" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">Audited</text>
+<text x="630" y="272" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ค่าไฟฟ้า</text>
+<text x="910" y="272" font-family='Sarabun' font-size="10.5" font-weight="600" fill="#B23A3A" text-anchor="end">-890.00</text>
+<line x1="438" y1="284" x2="1002" y2="284" stroke="#f0f0f0" stroke-width="1"/>
+<text x="438" y="326" font-family='Sarabun' font-size="9.5" font-weight="normal" fill="#8a7a63" text-anchor="start">แก้ไข/ลบได้เฉพาะรายการของตนเอง ที่ยังไม่ Audited</text>
+</svg></div>
+    <p class="screen-cap">หน้าบันทึกรายการ พร้อมตารางประวัติและสถานะล่าสุด — ข้อมูลในภาพเป็นตัวอย่าง</p>
+
+    <h3 class="gov-h">2. ผู้ตรวจสอบ (Auditor) — การสอบทาน</h3>
+    <p>เห็นเฉพาะรายการที่รอตรวจ เลือกได้ทีละหลายรายการแล้วอนุมัติหรือตีกลับพร้อมเหตุผล ด้านล่างมีแบบฟอร์มบันทึกผลการสอบทานประจำงวด ซึ่งเผยแพร่ขึ้นหน้าเว็บสาธารณะทันทีหลังบันทึก</p>
+    <div class="screen-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 600" width="100%" height="100%">
+<rect width="1040" height="600" fill="#f8f9fb"/>
+<rect x="0" y="0" width="1040" height="600" fill="none" stroke="#ddd" stroke-width="1"/>
+<rect x="0" y="0" width="1040" height="46" fill="#1f2430"/>
+<text x="20" y="29" font-family='Sarabun' font-size="14" font-weight="700" fill="#fff" text-anchor="start">วัดตัวอย่างตามสบาย</text>
+<rect x="890" y="12" width="130" height="20" fill="#FDE68A" rx="10"/>
+<text x="955.0" y="26" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#1f2430" text-anchor="middle">ผู้ตรวจสอบ (Auditor)</text>
+<text x="24" y="78" font-family='Sarabun' font-size="16" font-weight="700" fill="#1F2430" text-anchor="start">การสอบทาน — รายการรอตรวจ</text>
+<text x="24" y="98" font-family='Sarabun' font-size="11" font-weight="normal" fill="#8a7a63" text-anchor="start">ติ๊กเลือกได้หลายรายการ แล้วอนุมัติหรือตีกลับพร้อมกัน</text>
+<rect x="24" y="116" width="992" height="250" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<line x1="24" y1="152" x2="1016" y2="152" stroke="#e4dac5" stroke-width="1"/>
+<text x="70" y="140" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start">วันที่</text>
+<text x="144" y="140" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start">รายการ</text>
+<text x="444" y="140" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start">จำนวนเงิน</text>
+<text x="584" y="140" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start">ผู้บันทึก</text>
+<rect x="40" y="158" width="16" height="16" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="3"/>
+<text x="70" y="172" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">08/09</text>
+<text x="144" y="172" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">เงินบริจาคทอดกฐิน</text>
+<text x="444" y="172" font-family='Sarabun' font-size="10.5" font-weight="600" fill="#1F2430" text-anchor="start">8,200.00</text>
+<text x="584" y="172" font-family='Sarabun' font-size="10" font-weight="normal" fill="#8a7a63" text-anchor="start">นายอาสา รักษ์ช่วยวัด</text>
+<rect x="866" y="157" width="62" height="22" fill="#DCFCE7" rx="5"/>
+<text x="897" y="172" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#1E8449" text-anchor="middle">อนุมัติ</text>
+<rect x="936" y="157" width="62" height="22" fill="#FEE2E2" rx="5"/>
+<text x="967" y="172" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#B23A3A" text-anchor="middle">ตีกลับ</text>
+<line x1="24" y1="188" x2="1016" y2="188" stroke="#f0f0f0" stroke-width="1"/>
+<rect x="40" y="204" width="16" height="16" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="3"/>
+<text x="70" y="218" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">09/09</text>
+<text x="144" y="218" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ค่าวัสดุก่อสร้าง</text>
+<text x="444" y="218" font-family='Sarabun' font-size="10.5" font-weight="600" fill="#1F2430" text-anchor="start">4,200.00</text>
+<text x="584" y="218" font-family='Sarabun' font-size="10" font-weight="normal" fill="#8a7a63" text-anchor="start">นายอาสา รักษ์ช่วยวัด</text>
+<rect x="866" y="203" width="62" height="22" fill="#DCFCE7" rx="5"/>
+<text x="897" y="218" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#1E8449" text-anchor="middle">อนุมัติ</text>
+<rect x="936" y="203" width="62" height="22" fill="#FEE2E2" rx="5"/>
+<text x="967" y="218" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#B23A3A" text-anchor="middle">ตีกลับ</text>
+<line x1="24" y1="234" x2="1016" y2="234" stroke="#f0f0f0" stroke-width="1"/>
+<rect x="40" y="250" width="16" height="16" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="3"/>
+<text x="70" y="264" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">11/09</text>
+<text x="144" y="264" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">เงินทำบุญสังฆทาน</text>
+<text x="444" y="264" font-family='Sarabun' font-size="10.5" font-weight="600" fill="#1F2430" text-anchor="start">3,000.00</text>
+<text x="584" y="264" font-family='Sarabun' font-size="10" font-weight="normal" fill="#8a7a63" text-anchor="start">นางสมหญิง ใจบุญ</text>
+<rect x="866" y="249" width="62" height="22" fill="#DCFCE7" rx="5"/>
+<text x="897" y="264" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#1E8449" text-anchor="middle">อนุมัติ</text>
+<rect x="936" y="249" width="62" height="22" fill="#FEE2E2" rx="5"/>
+<text x="967" y="264" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#B23A3A" text-anchor="middle">ตีกลับ</text>
+<line x1="24" y1="280" x2="1016" y2="280" stroke="#f0f0f0" stroke-width="1"/>
+<rect x="796" y="322" width="210" height="32" fill="#EA580C" rx="6"/>
+<text x="901" y="343" font-family='Sarabun' font-size="11" font-weight="700" fill="#fff" text-anchor="middle">อนุมัติที่เลือกทั้งหมด</text>
+<rect x="24" y="382" width="992" height="180" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<text x="42" y="408" font-family='Sarabun' font-size="13" font-weight="700" fill="#1F2430" text-anchor="start">บันทึกผลการสอบทานประจำงวด</text>
+<text x="42" y="428" font-family='Sarabun' font-size="10" font-weight="normal" fill="#8a7a63" text-anchor="start">เผยแพร่ขึ้นหน้าเว็บสาธารณะทันทีหลังบันทึก — ตรวจทานให้รอบคอบก่อนกด</text>
+<text x="42" y="454" font-family='Sarabun' font-size="9.5" font-weight="normal" fill="#8a7a63" text-anchor="start">งวดที่ตรวจสอบ</text>
+<rect x="42" y="460" width="306.6666666666667" height="30" fill="#fafafa" stroke="#e4dac5" stroke-width="1" rx="4"/>
+<text x="366.6666666666667" y="454" font-family='Sarabun' font-size="9.5" font-weight="normal" fill="#8a7a63" text-anchor="start">เงินคงเหลือตามบัญชี</text>
+<rect x="366.6666666666667" y="460" width="306.6666666666667" height="30" fill="#fafafa" stroke="#e4dac5" stroke-width="1" rx="4"/>
+<text x="691.3333333333334" y="454" font-family='Sarabun' font-size="9.5" font-weight="normal" fill="#8a7a63" text-anchor="start">ความเห็นผู้ตรวจสอบ</text>
+<rect x="691.3333333333334" y="460" width="306.6666666666667" height="30" fill="#fafafa" stroke="#e4dac5" stroke-width="1" rx="4"/>
+<rect x="42" y="506" width="160" height="34" fill="#16a34a" rx="6"/>
+<text x="122" y="528" font-family='Sarabun' font-size="11" font-weight="700" fill="#fff" text-anchor="middle">✓ บันทึกรายงาน</text>
+</svg></div>
+    <p class="screen-cap">หน้าการสอบทาน พร้อมรายการรอตรวจและแบบฟอร์มบันทึกผล — ข้อมูลในภาพเป็นตัวอย่าง</p>
+
+    <h3 class="gov-h">3. ผู้ดูแลระบบ (Admin) — ตั้งค่าระบบ & จัดการผู้ใช้งาน</h3>
+    <p>เมนูที่เห็นเฉพาะ Admin เท่านั้น ใช้ตั้งค่าข้อมูลวัด บัญชีธนาคาร ทำเนียบกรรมการ และบริหารบัญชีผู้ใช้งานทั้งหมดในระบบ</p>
+    <div class="screen-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 620" width="100%" height="100%">
+<rect width="1040" height="620" fill="#f8f9fb"/>
+<rect x="0" y="0" width="1040" height="620" fill="none" stroke="#ddd" stroke-width="1"/>
+<rect x="0" y="0" width="1040" height="46" fill="#1f2430"/>
+<text x="20" y="29" font-family='Sarabun' font-size="14" font-weight="700" fill="#fff" text-anchor="start">วัดตัวอย่างตามสบาย</text>
+<rect x="890" y="12" width="130" height="20" fill="#FED7AA" rx="10"/>
+<text x="955.0" y="26" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#1f2430" text-anchor="middle">ผู้ดูแลระบบ (Admin)</text>
+<text x="24" y="78" font-family='Sarabun' font-size="16" font-weight="700" fill="#1F2430" text-anchor="start">ตั้งค่าระบบ</text>
+<rect x="24.0" y="100" width="314.6666666666667" height="260" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<rect x="24.0" y="100" width="314.6666666666667" height="36" fill="#f3f4f6" rx="8"/>
+<text x="40.0" y="123" font-family='Sarabun' font-size="12.5" font-weight="700" fill="#1F2430" text-anchor="start">ข้อมูลวัด</text>
+<text x="40.0" y="156" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ชื่อวัด: วัดตัวอย่างตามสบาย</text>
+<text x="40.0" y="188" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ตำบล/อำเภอ/จังหวัด: ...อุตรดิตถ์</text>
+<text x="40.0" y="220" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ชื่อเจ้าอาวาส: พระครู...</text>
+<text x="40.0" y="252" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">เบอร์ติดต่อ: 08x-xxx-xxxx</text>
+<rect x="40.0" y="340" width="282.6666666666667" height="30" fill="#fff" stroke="#EA580C" stroke-width="1.3" rx="5"/>
+<text x="181.33333333333334" y="360" font-family='Sarabun' font-size="10.5" font-weight="700" fill="#EA580C" text-anchor="middle">บันทึกการแก้ไข</text>
+<rect x="362.6666666666667" y="100" width="314.6666666666667" height="260" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<rect x="362.6666666666667" y="100" width="314.6666666666667" height="36" fill="#f3f4f6" rx="8"/>
+<text x="378.6666666666667" y="123" font-family='Sarabun' font-size="12.5" font-weight="700" fill="#1F2430" text-anchor="start">บัญชีธนาคาร / เงินสด</text>
+<text x="378.6666666666667" y="156" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">เงินสด (เหรัญญิก) — Active</text>
+<text x="378.6666666666667" y="188" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ธนาคารกรุงไทย ...6789-0</text>
+<text x="378.6666666666667" y="220" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ธนาคารออมสิน ...9012-0</text>
+<text x="378.6666666666667" y="252" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#EA580C" text-anchor="start">+ เพิ่มบัญชีใหม่</text>
+<rect x="378.6666666666667" y="340" width="282.6666666666667" height="30" fill="#fff" stroke="#EA580C" stroke-width="1.3" rx="5"/>
+<text x="520.0" y="360" font-family='Sarabun' font-size="10.5" font-weight="700" fill="#EA580C" text-anchor="middle">บันทึกการแก้ไข</text>
+<rect x="701.3333333333334" y="100" width="314.6666666666667" height="260" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<rect x="701.3333333333334" y="100" width="314.6666666666667" height="36" fill="#f3f4f6" rx="8"/>
+<text x="717.3333333333334" y="123" font-family='Sarabun' font-size="12.5" font-weight="700" fill="#1F2430" text-anchor="start">ทำเนียบกรรมการวัด</text>
+<text x="717.3333333333334" y="156" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">นายอาสา รักษ์ช่วยวัด — ไวยาวัจกร</text>
+<text x="717.3333333333334" y="188" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">นางสมหญิง ใจบุญ — กรรมการ</text>
+<text x="717.3333333333334" y="220" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">นายมานะ ตั้งใจ — กรรมการ</text>
+<text x="717.3333333333334" y="252" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#EA580C" text-anchor="start">+ เพิ่มกรรมการ</text>
+<rect x="717.3333333333334" y="340" width="282.6666666666667" height="30" fill="#fff" stroke="#EA580C" stroke-width="1.3" rx="5"/>
+<text x="858.6666666666667" y="360" font-family='Sarabun' font-size="10.5" font-weight="700" fill="#EA580C" text-anchor="middle">บันทึกการแก้ไข</text>
+<rect x="24" y="384" width="992" height="180" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<text x="44" y="410" font-family='Sarabun' font-size="13" font-weight="700" fill="#1F2430" text-anchor="start">จัดการผู้ใช้งาน</text>
+<text x="44" y="432" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start">Username</text>
+<text x="220" y="432" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start">ชื่อ-สกุล</text>
+<text x="470" y="432" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start">สิทธิ์</text>
+<text x="940" y="432" font-family='Sarabun' font-size="10" font-weight="700" fill="#8a7a63" text-anchor="start"></text>
+<line x1="44" y1="440" x2="996" y2="440" stroke="#e4dac5" stroke-width="1"/>
+<text x="44" y="462" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">admin</text>
+<text x="220" y="462" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ไวยาวัจกร (Admin)</text>
+<rect x="470" y="449" width="60" height="20" fill="#EA580C" rx="10"/>
+<text x="500.0" y="463" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">Admin</text>
+<text x="940" y="462" font-family='Sarabun' font-size="10" font-weight="normal" fill="#8a7a63" text-anchor="start">แก้ไข · ลบ</text>
+<text x="44" y="490" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">user</text>
+<text x="220" y="490" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">เจ้าหน้าที่บัญชี</text>
+<rect x="470" y="477" width="60" height="20" fill="#4F46E5" rx="10"/>
+<text x="500.0" y="491" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">User</text>
+<text x="940" y="490" font-family='Sarabun' font-size="10" font-weight="normal" fill="#8a7a63" text-anchor="start">แก้ไข · ลบ</text>
+<text x="44" y="518" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">auditor</text>
+<text x="220" y="518" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ผู้ตรวจสอบ</text>
+<rect x="470" y="505" width="60" height="20" fill="#B45309" rx="10"/>
+<text x="500.0" y="519" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#fff" text-anchor="middle">Auditor</text>
+<text x="940" y="518" font-family='Sarabun' font-size="10" font-weight="normal" fill="#8a7a63" text-anchor="start">แก้ไข · ลบ</text>
+</svg></div>
+    <p class="screen-cap">หน้าตั้งค่าระบบและจัดการผู้ใช้งาน — ข้อมูลในภาพเป็นตัวอย่าง</p>
+
+    <h3 class="gov-h">4. หน้าเว็บสาธารณะ — ไม่ต้องเข้าสู่ระบบ</h3>
+    <p>ทุกคนเปิดดูได้โดยไม่ต้อง login เห็นเฉพาะยอดที่ผ่านการตรวจสอบ (Audited) แล้วเท่านั้น เพื่อความโปร่งใสต่อผู้บริจาคและชุมชน</p>
+    <div class="screen-frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 520" width="100%" height="100%">
+<rect width="1040" height="520" fill="#f8f9fb"/>
+<rect x="0" y="0" width="1040" height="520" fill="none" stroke="#ddd" stroke-width="1"/>
+<rect x="0" y="0" width="1040" height="56" fill="#fff" stroke="#e4dac5" stroke-width="1"/>
+<text x="24" y="34" font-family='Sarabun' font-size="15" font-weight="700" fill="#1F2430" text-anchor="start">วัดตัวอย่างตามสบาย — ความโปร่งใสทางการเงิน</text>
+<rect x="890" y="18" width="130" height="20" fill="#DCFCE7" rx="10"/>
+<text x="955.0" y="32" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#1E8449" text-anchor="middle">เปิดดูได้ทุกคน</text>
+<rect x="24.0" y="80" width="314.6666666666667" height="90" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<text x="44.0" y="108" font-family='Sarabun' font-size="11" font-weight="normal" fill="#8a7a63" text-anchor="start">รายรับเดือนนี้</text>
+<text x="44.0" y="140" font-family='Sarabun' font-size="20" font-weight="700" fill="#1E8449" text-anchor="start">22,138.20</text>
+<rect x="362.6666666666667" y="80" width="314.6666666666667" height="90" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<text x="382.6666666666667" y="108" font-family='Sarabun' font-size="11" font-weight="normal" fill="#8a7a63" text-anchor="start">รายจ่ายเดือนนี้</text>
+<text x="382.6666666666667" y="140" font-family='Sarabun' font-size="20" font-weight="700" fill="#B23A3A" text-anchor="start">5,440.00</text>
+<rect x="701.3333333333334" y="80" width="314.6666666666667" height="90" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<text x="721.3333333333334" y="108" font-family='Sarabun' font-size="11" font-weight="normal" fill="#8a7a63" text-anchor="start">คงเหลือสุทธิ</text>
+<text x="721.3333333333334" y="140" font-family='Sarabun' font-size="20" font-weight="700" fill="#EA580C" text-anchor="start">16,698.20</text>
+<rect x="24" y="192" width="992" height="160" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<text x="44" y="220" font-family='Sarabun' font-size="13" font-weight="700" fill="#1F2430" text-anchor="start">สรุปรายรับแยกตามหมวดหมู่</text>
+<text x="44" y="244" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">เงินบริจาค/ทำบุญ</text>
+<text x="976" y="244" font-family='Sarabun' font-size="10.5" font-weight="600" fill="#1F2430" text-anchor="end">22,100</text>
+<rect x="44" y="252" width="932" height="10" fill="#f0f0f0" rx="5"/>
+<rect x="44" y="252" width="801.52" height="10" fill="#EA580C" rx="5"/>
+<text x="44" y="286" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">ดอกเบี้ยธนาคาร</text>
+<text x="976" y="286" font-family='Sarabun' font-size="10.5" font-weight="600" fill="#1F2430" text-anchor="end">38</text>
+<rect x="44" y="294" width="932" height="10" fill="#f0f0f0" rx="5"/>
+<rect x="44" y="294" width="37.28" height="10" fill="#EA580C" rx="5"/>
+<rect x="24" y="368" width="992" height="130" fill="#fff" stroke="#e4dac5" stroke-width="1" rx="8"/>
+<text x="44" y="394" font-family='Sarabun' font-size="13" font-weight="700" fill="#1F2430" text-anchor="start">รายงานผลการสอบทานล่าสุด</text>
+<text x="44" y="416" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#8a7a63" text-anchor="start">งวด: กันยายน 2569 · ผู้ตรวจสอบ: นางสมหญิง ใจบุญ · บันทึกเมื่อ 10/10/2569</text>
+<text x="44" y="440" font-family='Sarabun' font-size="10.5" font-weight="normal" fill="#1F2430" text-anchor="start">“ตรวจสอบเอกสารและยอดเงินคงเหลือแล้ว ถูกต้องตรงกันทุกรายการ”</text>
+<rect x="44" y="458" width="140" height="20" fill="#FFF7ED" rx="10"/>
+<text x="114.0" y="472" font-family='Sarabun' font-size="9.5" font-weight="700" fill="#EA580C" text-anchor="middle">ดูรายงานฉบับเต็ม</text>
+</svg></div>
+    <p class="screen-cap">หน้าเว็บสาธารณะ สรุปยอดและรายงานผลการสอบทาน — ข้อมูลในภาพเป็นตัวอย่าง</p>
   </div>
 </section>
+
 <footer>
   <div class="wrap">
     <p>ระบบบัญชีวัดและ e-Donation "วัดไทยใสใส" — Ver-R2 · เผยแพร่เพื่อประโยชน์สาธารณะ ไม่แสวงหากำไร</p>
@@ -330,47 +628,5 @@
   </div>
 </footer>
 
-<script>
-(function(){
-  // ---- Screenshot previews (lightweight CSS mockups, no external images needed) ----
-  const shots = [
-    { title: 'ภาพรวม & บันทึก', desc: 'ยอดเงินคงเหลือและรายการล่าสุดในหน้าเดียว',
-      body: `<div style="background:#1f2430;padding:10px 14px;color:#fff;font-size:11px;font-weight:600;">วัดตัวอย่าง</div>
-             <div style="padding:14px;">
-               <div style="display:flex;gap:6px;margin-bottom:10px;">
-                 <div style="flex:1;border:1px solid #e4dac5;border-radius:4px;padding:8px;"><div style="font-size:9px;color:#8a7a63;">Verified</div><div style="font-size:14px;font-weight:700;">12</div></div>
-                 <div style="flex:1;border:1px solid #e4dac5;border-radius:4px;padding:8px;"><div style="font-size:9px;color:#8a7a63;">Audited</div><div style="font-size:14px;font-weight:700;color:#3F6B4A;">48</div></div>
-               </div>
-               <div style="border-top:1px solid #e4dac5;padding-top:8px;">
-                 <div style="display:flex;justify-content:space-between;font-size:10px;padding:4px 0;"><span>01/09 เงินทำบุญ</span><span style="color:#3F6B4A;">+3,200</span></div>
-                 <div style="display:flex;justify-content:space-between;font-size:10px;padding:4px 0;"><span>30/08 ค่าน้ำประปา</span><span style="color:#B23A3A;">-1,150</span></div>
-               </div>
-             </div>` },
-    { title: 'พิมพ์รายงานบัญชี', desc: 'เลือกจาก 9 รูปแบบ พิมพ์ PDF หรือส่งออก Excel',
-      body: `<div style="padding:14px;">
-               <div style="font-size:11px;font-weight:600;margin-bottom:10px;">รายงานที่เลือกได้</div>
-               <div style="border:1px solid #e4dac5;border-left:3px solid #EA580C;border-radius:3px;padding:6px 8px;margin-bottom:6px;font-size:9.5px;">แบบที่ 1 สมุดเงินสด (Cash Book)</div>
-               <div style="border:1px solid #e4dac5;border-left:3px solid #EA580C;border-radius:3px;padding:6px 8px;margin-bottom:6px;font-size:9.5px;">แบบที่ 5 งบรายรับ-รายจ่าย</div>
-               <div style="border:1px solid #e4dac5;border-left:3px solid #EA580C;border-radius:3px;padding:6px 8px;font-size:9.5px;">แบบที่ 9 รายงานเงินคงเหลือ</div>
-             </div>` },
-    { title: 'หน้าเว็บสาธารณะ', desc: 'เปิดดูได้ทุกคนโดยไม่ต้องเข้าสู่ระบบ',
-      body: `<div style="padding:14px;">
-               <div style="font-size:10px;color:#8a7a63;margin-bottom:8px;">ทุกคนดูได้โดยไม่ต้อง login</div>
-               <div style="display:flex;gap:6px;">
-                 <div style="flex:1;border:1px solid #e4dac5;border-top:2px solid #3F6B4A;border-radius:3px;padding:6px;text-align:center;"><div style="font-size:8px;color:#8a7a63;">รายรับสุทธิ</div><div style="font-size:11px;font-weight:700;color:#3F6B4A;">62,320</div></div>
-                 <div style="flex:1;border:1px solid #e4dac5;border-top:2px solid #EA580C;border-radius:3px;padding:6px;text-align:center;"><div style="font-size:8px;color:#8a7a63;">คงเหลือ</div><div style="font-size:11px;font-weight:700;">61,520</div></div>
-               </div>
-             </div>` },
-  ];
-  const row = document.getElementById('shot-row');
-  shots.forEach(s => {
-    const el = document.createElement('div');
-    el.className = 'shot';
-    el.innerHTML = `<div style="background:#fff;">${s.body}</div><div class="shot-cap"><strong style="color:var(--ink);">${s.title}</strong><br>${s.desc}</div>`;
-    row.appendChild(el);
-  });
-})();
-
-</script>
 </body>
 </html>
