@@ -294,6 +294,16 @@
   @media (max-width: 700px) { .team-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 460px) { .team-grid { grid-template-columns: 1fr; } .team-card img { aspect-ratio: 1/1; object-position: top center; } }
 
+  /* ---------- PI verified-experience block ---------- */
+  .pi-creds { margin: 16px 0 6px; padding: 14px 18px 10px; background: var(--notice-bg); border: 1px solid var(--line); border-radius: 8px; }
+  .pi-creds h4 { font-family: 'Sarabun', sans-serif; font-size: 14px; margin: 0 0 8px; color: var(--deep); }
+  .pi-creds ul { list-style: none; padding: 0; margin: 0; }
+  .pi-creds li { position: relative; padding: 4px 0 4px 24px; font-size: 13.5px; line-height: 1.65; color: var(--ink-soft); }
+  .pi-creds li::before { content: '✓'; position: absolute; left: 2px; color: var(--success); font-weight: 700; }
+  .pi-creds li b { color: var(--ink); }
+  .pi-creds .src { font-size: 11.5px; margin-left: 6px; white-space: nowrap; }
+  .pi-creds .src a { color: var(--muted); }
+
   /* ---------- Site nav bar (shared across all pages) ---------- */
   .site-nav { background: var(--deep); padding: 12px 0; }
   .site-nav .wrap-wide { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
