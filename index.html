@@ -184,7 +184,7 @@
   /* ---------- PI bio card ---------- */
   .pi-card { display: grid; grid-template-columns: 240px 1fr; gap: 28px; align-items: start;
     background: var(--bg-raised); border: 1px solid var(--line); border-radius: 8px; padding: 28px; margin-top: 34px; }
-  .pi-card img { width: 100%; border-radius: 6px; display: block; object-fit: cover; aspect-ratio: 900/806; }
+  .pi-card img { width: 100%; border-radius: 6px; display: block; object-fit: cover; object-position: top center; aspect-ratio: 351/462; }
   .pi-award-tag { display: inline-flex; align-items: center; gap: 6px; background: #FFF1E6; color: var(--accent);
     font-size: 12.5px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; }
   .pi-card h3 { margin: 0 0 4px; font-size: 20px; font-family: 'Noto Serif Thai', serif; }
@@ -281,6 +281,18 @@
   .screen-cap { font-size: 13px; color: var(--muted); text-align: center; margin: 10px 0 36px; }
   .role-compare-frame { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 8px; padding: 16px; margin: 24px 0 8px; }
   .role-compare-frame svg { display: block; width: 100%; height: auto; }
+
+  /* ---------- Research team cards ---------- */
+  .team-h { font-family: 'Noto Serif Thai', serif; font-size: 20px; margin: 44px 0 4px; color: var(--ink); }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+  .team-card { background: var(--bg-raised); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+  .team-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: top center; display: block; }
+  .team-body { padding: 14px 16px 18px; }
+  .team-body h4 { font-family: 'Noto Serif Thai', serif; font-size: 15.5px; line-height: 1.45; margin: 0 0 6px; color: var(--ink); }
+  .team-role { font-size: 13px; font-weight: 600; color: var(--accent); margin: 0 0 6px; max-width: none; line-height: 1.5; }
+  .team-aff { font-size: 12.5px; color: var(--muted); margin: 0; max-width: none; line-height: 1.55; }
+  @media (max-width: 700px) { .team-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 460px) { .team-grid { grid-template-columns: 1fr; } .team-card img { aspect-ratio: 1/1; object-position: top center; } }
 
   /* ---------- Site nav bar (shared across all pages) ---------- */
   .site-nav { background: var(--deep); padding: 12px 0; }
@@ -443,7 +455,7 @@
       <a class="toc-card" href="research.html">
         <div class="num">02</div>
         <h3>โครงการวิจัย & ผู้พัฒนา</h3>
-        <p>หัวหน้าโครงการ แหล่งทุน และการแจ้งข้อมูลลิขสิทธิ์ซอฟต์แวร์</p>
+        <p>หัวหน้าโครงการ คณะผู้วิจัย แหล่งทุน และการแจ้งข้อมูลลิขสิทธิ์ซอฟต์แวร์</p>
       </a>
       <a class="toc-card" href="features.html">
         <div class="num">03</div>
