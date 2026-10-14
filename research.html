@@ -565,6 +565,34 @@
     .tl-photos.nat figcaption { font-size: 11.5px; }
   }
 
+  /* 25: คลิปประกอบ (click-to-play) */
+  .tl-vids { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 10px 0 4px; max-width: 640px; }
+  .tl-vids.two { grid-template-columns: 1fr 1fr; max-width: none; }
+  .tl-vids figure { margin: 0; min-width: 0; }
+  .tl-vids figcaption { font-size: 12.5px; color: var(--muted); line-height: 1.55; margin-top: 7px; }
+  .tl-vids figcaption a { color: var(--muted); }
+  .tl-vids .yt-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--line);
+    background: linear-gradient(135deg, #2B2118 0%, #4E3A26 100%); box-shadow: 0 4px 16px rgba(42,33,24,.16); }
+  .tl-vids .yt-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  .tl-vids .yt-poster { position: absolute; inset: 0; display: block; color: #fff; text-decoration: none; cursor: pointer; }
+  .tl-vids .yt-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s ease; border: 0; border-radius: 0; }
+  .tl-vids .yt-thumb.ok { opacity: 1; }
+  .tl-vids .yt-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(20,12,4,.78) 100%); }
+  .tl-vids .yt-play { position: absolute; left: 50%; top: 45%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; background: var(--accent); color: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,.35); transition: transform .18s ease; }
+  .tl-vids .yt-play svg { width: 26px; height: 26px; margin-left: 4px; }
+  .tl-vids .yt-poster:hover .yt-play, .tl-vids .yt-poster:focus-visible .yt-play { transform: scale(1.08); }
+  .tl-vids .yt-poster:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+  .tl-vids .yt-label { position: absolute; left: 14px; right: 14px; bottom: 11px; display: block; line-height: 1.4; text-shadow: 0 1px 6px rgba(0,0,0,.65); }
+  .tl-vids .yt-label b { display: block; font-size: 14.5px; }
+  .tl-vids .yt-label small { display: block; font-size: 12px; opacity: .88; }
+  .tl-vids.two .yt-play { width: 52px; height: 52px; margin: -26px 0 0 -26px; } .tl-vids.two .yt-play svg { width: 22px; height: 22px; }
+  .tl-vids.two .yt-label b { font-size: 13.5px; }
+  @media (max-width: 720px) { .tl-vids.two { grid-template-columns: 1fr; max-width: 640px; } }
+  @media (max-width: 460px) { .tl-vids .yt-label b { font-size: 13.5px; } .tl-vids .yt-play { width: 54px; height: 54px; margin: -27px 0 0 -27px; } }
+  @media (prefers-reduced-motion: reduce) { .tl-vids .yt-play, .tl-vids .yt-thumb { transition: none; } }
+
 </style>
 </head>
 <body>
@@ -914,6 +942,21 @@
             <ul class="tl-feat"><li>บันทึกผู้บริจาคด้วยเลขประจำตัว 13 หลัก</li><li>ใบอนุโมทนาบัตร e-Donation + ไฟล์นำส่งกรมสรรพากร</li></ul>
           </div>
           <div class="tl-lock"><span class="ic" aria-hidden="true">🔒</span><p><b>หลักฐานที่ไม่เผยแพร่:</b> รายนาม ภาพต้นฉบับ (ภาพที่แสดงข้างต้นเป็นฉบับเบลอใบหน้า) และบันทึกถอดเทปของผู้ให้ข้อมูลทั้ง 22 รูป/คน (ภาคผนวก ง.1–ง.2 ของรายงาน) เปิดเฉพาะผู้ประเมินโครงการ เพื่อคุ้มครองผู้ให้ข้อมูลตามเงื่อนไข IRB และ PDPA</p></div>
+          <span class="tl-lab tl-sub">คลิปประกอบท้ายหัวข้อนี้ — ช่วยทำความเข้าใจเรื่องที่อ่านข้างต้น · กดเล่นได้ที่นี่</span>
+          <div class="tl-vids">
+            <figure class="yt-card" data-yt="UoHro6cOgOo" data-title="คลิปประกอบ: R₁ · แผนเร่งรัด">
+              <div class="yt-frame">
+                <a class="yt-poster" href="https://youtu.be/UoHro6cOgOo" target="_blank" rel="noopener" aria-label="เล่นคลิป: คลิปประกอบ: R₁ · แผนเร่งรัด">
+                  <img class="yt-thumb" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                  <span class="yt-shade" aria-hidden="true"></span>
+                  <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span>
+                  <span class="yt-label"><b>ดูคลิปประกอบส่วนนี้</b><small>R₁ · แผนเร่งรัด · กดเพื่อเล่น</small></span>
+                </a>
+              </div>
+              <figcaption>คลิปประกอบ · R₁ · แผนเร่งรัด · <a href="https://youtu.be/UoHro6cOgOo" target="_blank" rel="noopener">เปิดบน YouTube ↗</a></figcaption>
+            </figure>
+          </div>
+          <p class="tl-privacy">ตัวเล่นจาก YouTube จะโหลดเมื่อกดเล่นเท่านั้น (ใช้โหมดความเป็นส่วนตัวขั้นสูงของ YouTube)</p>
           <p class="tl-src"><b>อ้างอิง:</b> รายงานความก้าวหน้า ข้อ 1.2.2–1.2.3 · ข้อ 2.4 · ตารางที่ 6.1 เดือนที่ 4 · ตารางที่ 6.2 ข้อ 1 · เอกสารแนบ ก ร่างบทที่ 4 หัวข้อ 4.1.2–4.1.3 · การจับคู่ "ข้อค้นพบ → ฟีเจอร์" ดูตารางสรุปท้ายหน้า</p>
         </div>
       </li>
@@ -1021,6 +1064,21 @@
               <p class="tl-privacy" style="margin-top:6px">สี่บทบาทตามภาพที่ 1 — แบ่งหน้าที่ชัดเจนเพื่อให้เกิดการถ่วงดุลอำนาจ (Checks and Balances) ตามหลักธรรมาภิบาล</p>
             </div>
           </div>
+          <span class="tl-lab tl-sub">คลิปประกอบท้ายหัวข้อนี้ — ช่วยทำความเข้าใจเรื่องที่อ่านข้างต้น · กดเล่นได้ที่นี่</span>
+          <div class="tl-vids">
+            <figure class="yt-card" data-yt="7MbtrGcbrOE" data-title="EP.12 | ระบบที่ดี ต้องให้ชาววัดใช้ได้จริง">
+              <div class="yt-frame">
+                <a class="yt-poster" href="https://youtu.be/7MbtrGcbrOE" target="_blank" rel="noopener" aria-label="เล่นคลิป: EP.12 | ระบบที่ดี ต้องให้ชาววัดใช้ได้จริง">
+                  <img class="yt-thumb" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                  <span class="yt-shade" aria-hidden="true"></span>
+                  <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span>
+                  <span class="yt-label"><b>EP.12 | ระบบที่ดี ต้องให้ชาววัดใช้ได้จริง</b><small>กดเพื่อเล่นที่นี่ได้เลย</small></span>
+                </a>
+              </div>
+              <figcaption>คลิปประกอบ · D₁ · ตรวจร่างรูปแบบ · <a href="https://youtu.be/7MbtrGcbrOE" target="_blank" rel="noopener">เปิดบน YouTube ↗</a></figcaption>
+            </figure>
+          </div>
+          <p class="tl-privacy">ตัวเล่นจาก YouTube จะโหลดเมื่อกดเล่นเท่านั้น (ใช้โหมดความเป็นส่วนตัวขั้นสูงของ YouTube)</p>
           <p class="tl-src"><b>อ้างอิง:</b> รายงานความก้าวหน้า ข้อ 1.3 (Expert Review) · ตารางชี้แจงการแก้ไขตามข้อเสนอแนะรอบ 2 เดือน · ตารางที่ 6.2 ข้อ 2–5 · ภาคผนวก ค.3 (ภาพที่ 1–2) · ภาคผนวก ง.3 (ภาพถ่ายการตรวจประเมิน — แสดงเฉพาะฉบับเบลอ ส่วนรายชื่อ วันตรวจประเมินรายบุคคลและหนังสือเชิญ/ตอบรับ ไม่เผยแพร่ในหน้านี้) · ส่งบทความวิจัยฉบับที่ 1 เข้าสู่ระบบวารสารวิชาการเมื่อ 23 มิ.ย. 2569 (รหัสบทความ 297492)</p>
         </div>
       </li>
@@ -1092,6 +1150,21 @@
             </figure>
           </div>
           <p class="tl-privacy">ภาพภาคสนามระยะ R₂ ปิดบังใบหน้าบุคคลอื่นและป้ายที่ระบุชื่อวัด · ผู้วิจัยปรากฏในภาพในฐานะผู้ร่วมปฏิบัติการ</p>
+          <span class="tl-lab tl-sub">คลิปประกอบท้ายหัวข้อนี้ — ช่วยทำความเข้าใจเรื่องที่อ่านข้างต้น · กดเล่นได้ที่นี่</span>
+          <div class="tl-vids">
+            <figure class="yt-card" data-yt="vfviVeMqaC8" data-title="EP.13 | จากห้องวิจัยสู่สนามจริง: วัดไทยติดตรงไหน?">
+              <div class="yt-frame">
+                <a class="yt-poster" href="https://youtu.be/vfviVeMqaC8" target="_blank" rel="noopener" aria-label="เล่นคลิป: EP.13 | จากห้องวิจัยสู่สนามจริง: วัดไทยติดตรงไหน?">
+                  <img class="yt-thumb" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                  <span class="yt-shade" aria-hidden="true"></span>
+                  <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span>
+                  <span class="yt-label"><b>EP.13 | จากห้องวิจัยสู่สนามจริง: วัดไทยติดตรงไหน?</b><small>กดเพื่อเล่นที่นี่ได้เลย</small></span>
+                </a>
+              </div>
+              <figcaption>คลิปประกอบ · R₂ · พร้อมทางสถาบัน · <a href="https://youtu.be/vfviVeMqaC8" target="_blank" rel="noopener">เปิดบน YouTube ↗</a></figcaption>
+            </figure>
+          </div>
+          <p class="tl-privacy">ตัวเล่นจาก YouTube จะโหลดเมื่อกดเล่นเท่านั้น (ใช้โหมดความเป็นส่วนตัวขั้นสูงของ YouTube)</p>
           <p class="tl-src"><b>อ้างอิง:</b> ร่างผลการวิจัย R₂ บทที่ 4 ข้อ 4.2.2.1 (ฉบับร่าง) ข้อ ๑.๒–๑.๓ · ตารางที่ 4.5 · ภาพที่ 4.1, 4.3, 4.5 · ปูมการวิจัย LOG-R₂</p>
         </div>
       </li>
@@ -1185,6 +1258,21 @@
             </figure>
           </div>
           <p class="tl-privacy">ภาพชุดแรกจากภาคผนวก ง.5 ของรายงานความก้าวหน้า · ภาพชุดเพิ่มเติมจากร่างผลการวิจัย R₂ ปิดบังใบหน้าทุกคนเพื่อคุ้มครองข้อมูลส่วนบุคคล และไม่ระบุชื่อวัดต้นแบบ</p>
+          <span class="tl-lab tl-sub">คลิปประกอบท้ายหัวข้อนี้ — ช่วยทำความเข้าใจเรื่องที่อ่านข้างต้น · กดเล่นได้ที่นี่</span>
+          <div class="tl-vids">
+            <figure class="yt-card" data-yt="nrgGqMjDJso" data-title="EP.14 | ก่อนใช้แอป ต้องจัดระบบคนก่อน">
+              <div class="yt-frame">
+                <a class="yt-poster" href="https://youtu.be/nrgGqMjDJso" target="_blank" rel="noopener" aria-label="เล่นคลิป: EP.14 | ก่อนใช้แอป ต้องจัดระบบคนก่อน">
+                  <img class="yt-thumb" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                  <span class="yt-shade" aria-hidden="true"></span>
+                  <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span>
+                  <span class="yt-label"><b>EP.14 | ก่อนใช้แอป ต้องจัดระบบคนก่อน</b><small>กดเพื่อเล่นที่นี่ได้เลย</small></span>
+                </a>
+              </div>
+              <figcaption>คลิปประกอบ · R₂ · ประชุมเชิงปฏิบัติการและเปิดใช้จริง · <a href="https://youtu.be/nrgGqMjDJso" target="_blank" rel="noopener">เปิดบน YouTube ↗</a></figcaption>
+            </figure>
+          </div>
+          <p class="tl-privacy">ตัวเล่นจาก YouTube จะโหลดเมื่อกดเล่นเท่านั้น (ใช้โหมดความเป็นส่วนตัวขั้นสูงของ YouTube)</p>
           <p class="tl-src"><b>อ้างอิง:</b> รายงานความก้าวหน้า ข้อ 1.4 (สถานะความพร้อม) · ข้อ 2.6 · ภาคผนวก ง.5 · ตารางที่ 6.1 เดือนที่ 5 · แผนบริหารความเสี่ยง ข้อ 1 · ร่างผลการวิจัย R₂ ข้อ ๒.๒ (ภาพที่ 4.9–4.11)</p>
         </div>
       </li>
@@ -1218,6 +1306,32 @@
             </figure>
           </div>
           <div class="tl-lock"><span class="ic" aria-hidden="true">🔒</span><p><b>ปูมการวิจัยเชิงปฏิบัติการ (Action Research Logbook R₂)</b> — บันทึกประจำวันตั้งแต่ 29 ก.ค. ถึง 30 ก.ย. 2569 จัดทำสำหรับคณะผู้วิจัยเท่านั้น <u>ไม่เผยแพร่แก่บุคคลทั่วไป</u> ตามหลักจริยธรรมการวิจัย รายงานจึงเปิดเผยเพียงบางส่วนให้ผู้ประเมินตรวจสอบ ข้อมูลบัญชีจริงของวัดต้นแบบก็ไม่เผยแพร่ในหน้านี้เช่นกัน</p></div>
+          <span class="tl-lab tl-sub">คลิปประกอบท้ายหัวข้อนี้ (2 คลิป) — ช่วยทำความเข้าใจเรื่องที่อ่านข้างต้น · กดเล่นได้ที่นี่</span>
+          <div class="tl-vids two">
+            <figure class="yt-card" data-yt="yn0bGm6dPyc" data-title="คลิปประกอบ: R₂ · PAR Cycle 1–3 (คลิปที่ 1 จาก 2)">
+              <div class="yt-frame">
+                <a class="yt-poster" href="https://youtu.be/yn0bGm6dPyc" target="_blank" rel="noopener" aria-label="เล่นคลิป: คลิปประกอบ: R₂ · PAR Cycle 1–3 (คลิปที่ 1 จาก 2)">
+                  <img class="yt-thumb" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                  <span class="yt-shade" aria-hidden="true"></span>
+                  <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span>
+                  <span class="yt-label"><b>คลิปประกอบที่ 1 จาก 2</b><small>R₂ · PAR Cycle 1–3 · กดเพื่อเล่น</small></span>
+                </a>
+              </div>
+              <figcaption>คลิปประกอบที่ 1 จาก 2 · R₂ · PAR Cycle 1–3 · <a href="https://youtu.be/yn0bGm6dPyc" target="_blank" rel="noopener">เปิดบน YouTube ↗</a></figcaption>
+            </figure>
+            <figure class="yt-card" data-yt="4yslRUZs1Hk" data-title="คลิปประกอบ: R₂ · PAR Cycle 1–3 (คลิปที่ 2 จาก 2)">
+              <div class="yt-frame">
+                <a class="yt-poster" href="https://youtu.be/4yslRUZs1Hk" target="_blank" rel="noopener" aria-label="เล่นคลิป: คลิปประกอบ: R₂ · PAR Cycle 1–3 (คลิปที่ 2 จาก 2)">
+                  <img class="yt-thumb" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                  <span class="yt-shade" aria-hidden="true"></span>
+                  <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span>
+                  <span class="yt-label"><b>คลิปประกอบที่ 2 จาก 2</b><small>R₂ · PAR Cycle 1–3 · กดเพื่อเล่น</small></span>
+                </a>
+              </div>
+              <figcaption>คลิปประกอบที่ 2 จาก 2 · R₂ · PAR Cycle 1–3 · <a href="https://youtu.be/4yslRUZs1Hk" target="_blank" rel="noopener">เปิดบน YouTube ↗</a></figcaption>
+            </figure>
+          </div>
+          <p class="tl-privacy">ตัวเล่นจาก YouTube จะโหลดเมื่อกดเล่นเท่านั้น (ใช้โหมดความเป็นส่วนตัวขั้นสูงของ YouTube)</p>
           <p class="tl-src"><b>อ้างอิง:</b> รายงานความก้าวหน้า ข้อ 1.4 · ข้อ 2.6 · ตารางที่ 6.3 (KPIs ข้อ 1, 2, 8, 9) · ภาคผนวก ง.5 (ปูม R₂) · แผนบริหารความเสี่ยง ข้อ 1</p>
         </div>
       </li>
@@ -1246,6 +1360,32 @@
             </figure>
           </div>
           <p class="tl-privacy">ไม่นำภาพที่ปรากฏชื่อวัด ป้าย QR รับบริจาคจริง เอกสารราชการ และข้อมูลบัญชีจริงมาเผยแพร่ · ปิดบังใบหน้าทุกคนยกเว้นผู้วิจัย · ผลเชิงปริมาณจะรายงานเมื่อรายงานฉบับสมบูรณ์เสร็จ</p>
+          <span class="tl-lab tl-sub">คลิปประกอบท้ายหัวข้อนี้ (2 คลิป) — ช่วยทำความเข้าใจเรื่องที่อ่านข้างต้น · กดเล่นได้ที่นี่</span>
+          <div class="tl-vids two">
+            <figure class="yt-card" data-yt="EiwV-UZT_-A" data-title="คลิปประกอบ: R₂ · จากผู้รับระบบสู่ผู้ใช้ระบบ (คลิปที่ 1 จาก 2)">
+              <div class="yt-frame">
+                <a class="yt-poster" href="https://youtu.be/EiwV-UZT_-A" target="_blank" rel="noopener" aria-label="เล่นคลิป: คลิปประกอบ: R₂ · จากผู้รับระบบสู่ผู้ใช้ระบบ (คลิปที่ 1 จาก 2)">
+                  <img class="yt-thumb" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                  <span class="yt-shade" aria-hidden="true"></span>
+                  <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span>
+                  <span class="yt-label"><b>คลิปประกอบที่ 1 จาก 2</b><small>R₂ · จากผู้รับระบบสู่ผู้ใช้ระบบ · กดเพื่อเล่น</small></span>
+                </a>
+              </div>
+              <figcaption>คลิปประกอบที่ 1 จาก 2 · R₂ · จากผู้รับระบบสู่ผู้ใช้ระบบ · <a href="https://youtu.be/EiwV-UZT_-A" target="_blank" rel="noopener">เปิดบน YouTube ↗</a></figcaption>
+            </figure>
+            <figure class="yt-card" data-yt="uZqWQqR0Vqc" data-title="คลิปประกอบ: R₂ · จากผู้รับระบบสู่ผู้ใช้ระบบ (คลิปที่ 2 จาก 2)">
+              <div class="yt-frame">
+                <a class="yt-poster" href="https://youtu.be/uZqWQqR0Vqc" target="_blank" rel="noopener" aria-label="เล่นคลิป: คลิปประกอบ: R₂ · จากผู้รับระบบสู่ผู้ใช้ระบบ (คลิปที่ 2 จาก 2)">
+                  <img class="yt-thumb" alt="" width="1280" height="720" loading="lazy" decoding="async">
+                  <span class="yt-shade" aria-hidden="true"></span>
+                  <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span>
+                  <span class="yt-label"><b>คลิปประกอบที่ 2 จาก 2</b><small>R₂ · จากผู้รับระบบสู่ผู้ใช้ระบบ · กดเพื่อเล่น</small></span>
+                </a>
+              </div>
+              <figcaption>คลิปประกอบที่ 2 จาก 2 · R₂ · จากผู้รับระบบสู่ผู้ใช้ระบบ · <a href="https://youtu.be/uZqWQqR0Vqc" target="_blank" rel="noopener">เปิดบน YouTube ↗</a></figcaption>
+            </figure>
+          </div>
+          <p class="tl-privacy">ตัวเล่นจาก YouTube จะโหลดเมื่อกดเล่นเท่านั้น (ใช้โหมดความเป็นส่วนตัวขั้นสูงของ YouTube)</p>
           <p class="tl-src"><b>อ้างอิง:</b> ร่างผลการวิจัย R₂ บทที่ 4 ข้อ 4.2.2.1 (ฉบับร่าง) ข้อ ๒.๓ · ๓.๑–๓.๒ · ๔.๓ · ภาพที่ 4.19, 4.23 · ปูมการวิจัย LOG-R₂</p>
         </div>
       </li>
@@ -1310,6 +1450,52 @@
     </div>
   </div>
 </section>
+
+<script>
+/* คลิปประกอบในไทม์ไลน์: แสดงภาพปกก่อน กดแล้วจึงโหลดตัวเล่น YouTube (youtube-nocookie) แทนที่ภาพปก
+   - เล่นได้ทีละคลิป: เริ่มคลิปใหม่แล้วคลิปเดิมจะกลับเป็นภาพปก
+   - ไม่มี JavaScript หรือกดค้าง Ctrl/⌘: ลิงก์จะเปิดคลิปบน YouTube ตามปกติ */
+(function(){
+  try{
+    var cards = [].slice.call(document.querySelectorAll('.tl-vids .yt-card'));
+    function stop(card){
+      var s = card.__yt; if (!s || !s.playing) return;
+      while (s.frame.firstChild) s.frame.removeChild(s.frame.firstChild);
+      s.frame.appendChild(s.poster); s.playing = false;
+    }
+    cards.forEach(function(card){
+      var ID = card.getAttribute('data-yt'); if (!ID) return;
+      var poster = card.querySelector('.yt-poster'), img = card.querySelector('.yt-thumb'), frame = card.querySelector('.yt-frame');
+      if (!poster || !frame) return;
+      card.__yt = { poster: poster, frame: frame, playing: false };
+      if (img) {
+        var tries = ['maxresdefault', 'hqdefault'], k = 0;
+        var next = function(){
+          if (k < tries.length) img.src = 'https://i.ytimg.com/vi/' + ID + '/' + tries[k++] + '.jpg';
+          else if (img.parentNode) img.parentNode.removeChild(img);   // ไม่มีภาพปก: ใช้พื้นไล่สีแทน
+        };
+        img.addEventListener('load', function(){ if (img.naturalWidth <= 120) next(); else img.classList.add('ok'); });
+        img.addEventListener('error', next);
+        next();
+      }
+      poster.addEventListener('click', function(e){
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button === 1) return;
+        e.preventDefault();
+        cards.forEach(function(o){ if (o !== card) stop(o); });
+        var f = document.createElement('iframe');
+        f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ID) + '?autoplay=1&rel=0&playsinline=1';
+        f.title = card.getAttribute('data-title') || 'คลิปประกอบ';
+        f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        f.setAttribute('allowfullscreen', '');
+        f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+        while (frame.firstChild) frame.removeChild(frame.firstChild);
+        frame.appendChild(f); card.__yt.playing = true;
+        try { f.focus(); } catch(err){}
+      });
+    });
+  }catch(e){}
+})();
+</script>
 
 <footer>
   <div class="wrap">
