@@ -246,6 +246,34 @@
     border-radius: 6px; padding: 16px 22px; text-decoration: none; color: var(--ink); flex: 1; min-width: 220px;
     transition: border-color .15s ease; }
   .video-card:hover { border-color: var(--accent); }
+  /* ตัวอย่างวิดีโอแบบกดเล่นในหน้า (ตัวเล่น YouTube จะโหลดเมื่อกดเท่านั้น) */
+  .yt-preview { max-width: 720px; margin: 28px auto 0; }
+  .yt-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 8px; overflow: hidden; border: 1px solid var(--line);
+    background: linear-gradient(135deg, #2B2118 0%, #4E3A26 100%); box-shadow: 0 6px 22px rgba(42,33,24,.18); }
+  .yt-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  .yt-poster { position: absolute; inset: 0; display: block; color: #fff; text-decoration: none; cursor: pointer; }
+  .yt-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .35s ease; }
+  .yt-thumb.ok { opacity: 1; }
+  .yt-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(20,12,4,.72) 100%); }
+  .yt-play { position: absolute; left: 50%; top: 46%; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; background: var(--accent); color: #fff;
+    box-shadow: 0 4px 18px rgba(0,0,0,.35); transition: transform .18s ease; }
+  .yt-play svg { width: 30px; height: 30px; margin-left: 4px; }
+  .yt-poster:hover .yt-play, .yt-poster:focus-visible .yt-play { transform: scale(1.08); }
+  .yt-poster:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; }
+  .yt-label { position: absolute; left: 18px; right: 18px; bottom: 14px; display: block; line-height: 1.4; text-shadow: 0 1px 6px rgba(0,0,0,.6); }
+  .yt-label b { display: block; font-size: 16px; }
+  .yt-label small { display: block; font-size: 13px; opacity: .88; }
+  .yt-meta { font-size: 12.5px; color: var(--muted); margin: 8px 2px 0; max-width: none; }
+  .yt-meta a { color: var(--muted); }
+  .yt-series { max-width: 720px; margin: 18px auto 0; }
+  .yt-series .video-card { max-width: none; }
+  .video-card .vc-arrow { margin-left: auto; color: var(--muted); font-size: 18px; }
+  @media (max-width: 520px) {
+    .yt-play { width: 58px; height: 58px; margin: -29px 0 0 -29px; } .yt-play svg { width: 24px; height: 24px; }
+    .yt-label { left: 12px; right: 12px; bottom: 10px; } .yt-label b { font-size: 14.5px; } .yt-label small { font-size: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .yt-play, .yt-thumb { transition: none; } }
   .video-card strong { font-size: 15px; }
   .video-sub { font-size: 13px; color: var(--muted); }
   .play-icon { width: 38px; height: 38px; border-radius: 50%; background: var(--accent); color: var(--accent-ink);
@@ -455,10 +483,22 @@
     <h2 class="section-title">ซีรีส์เรียนรู้ธรรมาภิบาลการเงินวัดไทย</h2>
     <p class="lede-quote">“เพราะศรัทธาเป็นเรื่องของหัวใจ แต่ความโปร่งใสเป็นเรื่องของระบบ”</p>
     <p>ชุดวิดีโอ 18 ตอน อธิบายหลักธรรมาภิบาลการเงินวัด ควบคู่กับการใช้งานระบบนี้ในสถานการณ์จริง เหมาะสำหรับวัดที่ต้องการทำความเข้าใจภาพรวมก่อนเริ่มติดตั้ง</p>
-    <div class="video-links" style="justify-content:center;">
-      <a class="video-card" href="https://www.youtube.com/playlist?list=PLCFNYWgl5pUg" target="_blank" rel="noopener" style="max-width:320px;">
+    <div class="yt-preview" id="yt-preview">
+      <div class="yt-frame">
+        <a class="yt-poster" href="https://youtu.be/-4aIMKXjTfw" target="_blank" rel="noopener" aria-label="เล่นวิดีโอตัวอย่างจากซีรีส์เรียนรู้ธรรมาภิบาลการเงินวัดไทย">
+          <img class="yt-thumb" alt="" width="1280" height="720" loading="lazy" decoding="async">
+          <span class="yt-shade" aria-hidden="true"></span>
+          <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></span>
+          <span class="yt-label"><b>ดูตัวอย่างจากซีรีส์</b><small>กดเพื่อเล่นที่นี่ได้เลย</small></span>
+        </a>
+      </div>
+      <p class="yt-meta">ตัวเล่นจาก YouTube จะโหลดเมื่อกดเล่นเท่านั้น (ใช้โหมดความเป็นส่วนตัวขั้นสูงของ YouTube) · <a href="https://youtu.be/-4aIMKXjTfw" target="_blank" rel="noopener">เปิดดูบน YouTube ↗</a></p>
+    </div>
+    <div class="yt-series">
+      <a class="video-card" href="https://www.youtube.com/playlist?list=PLCFNYWgl5pUg" target="_blank" rel="noopener">
         <span class="play-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="14" height="10" rx="1.5"/><path d="M21 8v6M3 19h10"/></svg></span>
-        <span><strong>ดูทั้งซีรีส์ (18 ตอน)</strong><br><span class="video-sub">เปิดเพลย์ลิสต์ทั้งหมด</span></span>
+        <span><strong>ชอบตัวอย่างนี้? ดูต่อทั้งซีรีส์ (18 ตอน)</strong><br><span class="video-sub">เปิดเพลย์ลิสต์ครบทุกตอนบน YouTube</span></span>
+        <span class="vc-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
   </div>
@@ -700,6 +740,42 @@
     document.head.appendChild(tag);
   }
   if (document.readyState === 'complete') start(); else window.addEventListener('load', start);
+})();
+</script>
+
+<script>
+/* ตัวอย่างวิดีโอ: แสดงภาพปกก่อน กดแล้วจึงโหลดตัวเล่น YouTube (youtube-nocookie) แทนที่ภาพปก
+   - ไม่มี JavaScript หรือกด Ctrl/⌘/คลิกกลาง: ลิงก์จะเปิดวิดีโอบน YouTube ตามปกติ */
+(function(){
+  var ID = "-4aIMKXjTfw";
+  var box = document.getElementById('yt-preview'); if (!box) return;
+  var poster = box.querySelector('.yt-poster'), img = box.querySelector('.yt-thumb'), frame = box.querySelector('.yt-frame');
+  if (!poster || !frame) return;
+
+  if (img) {
+    var tries = ['maxresdefault', 'hqdefault'], k = 0;
+    var next = function(){
+      if (k < tries.length) img.src = 'https://i.ytimg.com/vi/' + ID + '/' + tries[k++] + '.jpg';
+      else if (img.parentNode) img.parentNode.removeChild(img);   // ไม่มีภาพปก: ใช้พื้นไล่สีแทน
+    };
+    img.addEventListener('load', function(){ if (img.naturalWidth <= 120) next(); else img.classList.add('ok'); });
+    img.addEventListener('error', next);
+    next();
+  }
+
+  poster.addEventListener('click', function(e){
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button === 1) return;
+    e.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + ID + '?autoplay=1&rel=0&playsinline=1';
+    f.title = 'ตัวอย่างวิดีโอ ซีรีส์เรียนรู้ธรรมาภิบาลการเงินวัดไทย';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    f.setAttribute('allowfullscreen', '');
+    f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+    while (frame.firstChild) frame.removeChild(frame.firstChild);
+    frame.appendChild(f);
+    try { f.focus(); } catch(err){}
+  });
 })();
 </script>
 
